@@ -17,7 +17,17 @@ function App() {
 
   const renderData =()=>{
     return data
-   
+    .filter((club) =>{
+            
+      if(searchClub === 'todos'){
+        return data;
+      }else if(searchClub === 'daily'){
+        return club.openOnWeekdays === true;
+      } else if(searchClub === 'weekend'){
+        return club.openOnWeekend === true;
+      }
+      
+    })
     .map((club, i)=>{
       return(
       <li key={i} className="card"><h3>{`#${i}`}{club.name}</h3><p>Abierto entre semana: {club.openOnWeekdays ? 'Sí' : 'No'}</p><p>Abierto el fin de semana: {club.openOnWeekend ? 'Sí' : 'No'}</p></li>)
