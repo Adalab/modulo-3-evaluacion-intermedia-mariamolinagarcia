@@ -15,18 +15,15 @@ function App() {
 
   const handleSubmit =(ev)=> ev.preventDefault();
 
-  /*const handleDelete = (ev) => {
+  const handleDelete = (ev) => {
     const xButton = ev.currentTarget;
     const motherXButton = xButton.parentElement;
-    const idClub =() =>
-      data.findIndex((club)=>{
-      motherXButton.id === 
-    })
-    if (motherXButton.id=== data.)
     
-    
+    data.splice(motherXButton.id, 1);
+
+    setData([...data]);
   }
-  */
+
 
 
   const renderData =()=>{
@@ -45,7 +42,7 @@ function App() {
     .map((club, i)=>{
       return(
       <li key={i} id={i} className="grid__card">
-        <div className="grid__card--close">X</div>
+        <div className="grid__card--close" onClick={handleDelete}>X</div>
         <div>
           <h3>{`#${i}`}{club.name}</h3>
           <p>Abierto entre semana: {club.openOnWeekdays ? 'Sí' : 'No'}</p>
