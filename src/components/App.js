@@ -77,14 +77,13 @@ function App() {
     setOpenWeekend(false);
     
   }
-console.log(data);
+
 
 const handleFilter = (ev) =>{
   setSearchClub(ev.target.value);
 
   
 }
-console.log(searchClub);
 
   return (
     <div className="App">
